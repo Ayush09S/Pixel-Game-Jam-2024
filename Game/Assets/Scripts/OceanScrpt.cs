@@ -19,10 +19,10 @@ public class OceanScrpt : MonoBehaviour
         
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        controller.isInOcean = collision.Equals(playerCollider);
+        controller.isInOcean = other.gameObject.CompareTag("Player");
         Debug.Log("Happens");
     }
-
+    
 }

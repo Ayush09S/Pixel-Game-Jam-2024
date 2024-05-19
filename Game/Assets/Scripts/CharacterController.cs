@@ -31,23 +31,21 @@ public class CharacterController : MonoBehaviour
 
         rbG = rb.gravityScale; // Allow visibility of gravity scale in editor
         
-        //transform.Translate(speed * Time.deltaTime * moveX * Vector2.right); // Allow Horizontal Movement
-        rb.velocity = new Vector2(speed * Time.deltaTime * moveX, rb.velocity.y);
+        rb.velocity = new Vector2(speed * Time.deltaTime * moveX, rb.velocity.y); // Allow Horizontal Movement
 
         if (isInOcean == true)
         {
             rb.gravityScale = 0;
-            //transform.Translate(Vector2.down * Time.deltaTime * drown); // Make the player slowly go downwards
-            rb.AddForce(Vector2.down * drown * Time.deltaTime, ForceMode2D.Force);
-            //transform.Translate(speed * Time.deltaTime * moveY * Vector2.up); // Allow Vertical movement
-            rb.velocity = new Vector2(speed * Time.deltaTime * moveX, speed * Time.deltaTime * moveY);
+
+            rb.AddForce(Vector2.down * drown * Time.deltaTime, ForceMode2D.Force); // Make the player slowly go downwards
+            rb.velocity = new Vector2(speed * Time.deltaTime * moveX, speed * Time.deltaTime * moveY); // Allow Vertical movement
         }
         if (isInOcean == false)
         {
             rb.gravityScale = 2;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) // Dive function
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) // Dive function (Yet to be decided how to implement (Auto-animated dive; Player simply jumps))
         {
             rb.AddForce(Vector2.up * jump, ForceMode2D.Impulse);
             Debug.Log("Player has diven");
