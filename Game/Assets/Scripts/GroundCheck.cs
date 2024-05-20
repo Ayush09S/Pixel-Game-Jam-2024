@@ -17,7 +17,7 @@ public class GroundCheck : MonoBehaviour
     {
         
     }
-
+    /*
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Ground"))
@@ -36,4 +36,5 @@ public class GroundCheck : MonoBehaviour
             Debug.Log("IsGrounded = False (Ocean)");
         }
     }
+    */
 }
